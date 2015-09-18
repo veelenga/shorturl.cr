@@ -1,4 +1,4 @@
-# shorturl.cr
+# shorturl.cr [![Build Status](https://travis-ci.org/veelenga/shorturl.cr.svg?branch=master)](https://travis-ci.org/veelenga/shorturl.cr)
 
 A simple library to use URL shortening services. Inspired by [shorturl](https://github.com/robbyrussell/shorturl) by Robby Russell.
 
