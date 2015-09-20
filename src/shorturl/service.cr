@@ -27,7 +27,7 @@ module ShortURL
           end
 
         on_response response if response && response.status_code == @code
-      rescue ex: SocketError
+      rescue ex: Socket::Error
         raise ServiceNotAvailable.new ex.to_s, ex
       end
     end
