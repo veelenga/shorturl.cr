@@ -32,4 +32,25 @@ module ShortURL
       end
     end
   end
+
+  describe ".expand" do
+    context "when short url valid" do
+      it "successfully expands it" do
+        short = ShortURL.shorten("http://google.com").not_nil!
+        ShortURL.expand(short).should eq "http://google.com"
+      end
+    end
+
+    context "when short url invalid" do
+      it "rasises InvalidShortURL exception" do
+        expect_raises(InvalidShortURL) { ShortURL.expand("http://no_such_url") }
+      end
+    end
+
+    context "when short url does not exist" do
+      it "rasises InvalidShortURL exception" do
+        expect_raises(InvalidShortURL) { ShortURL.expand("http://tinyurl.com/no_such_url") }
+      end
+    end
+  end
 end

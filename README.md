@@ -9,13 +9,17 @@ As easy as it could be:
 ```crystal
 require "shorturl"
 
-ShortURL.shorten "http://google.com"           # => http://tinyurl.com/2tx
-ShortURL.shorten "http://google.com", :tinyurl # => http://tinyurl.com/2tx
-ShortURL.shorten "http://google.com", :isgd    # => http://is.gd/OwycZW
+# shorten
+ShortURL.shorten "http://google.com"           # => "http://tinyurl.com/2tx"
+ShortURL.shorten "http://google.com", :tinyurl # => "http://tinyurl.com/2tx"
+ShortURL.shorten "http://google.com", :isgd    # => "http://is.gd/OwycZW"
+
+# expand
+ShortURL.expand "http://tinyurl.com/2tx"       # => "http://google.com"
 ```
 ## Available services
 
-Here is a list of available shortening services:
+Here is a list of available shortening services in shorturl.cr:
 
 * [is.gd](http://is.gd)
 * [tinyurl.com](http://tinyurl.com)

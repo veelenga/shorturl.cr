@@ -3,4 +3,6 @@ module ShortURL
   end
   class InvalidService < Exception
   end
+  class InvalidShortURL < Exception
+  end
 end
