@@ -17,8 +17,9 @@ ShortURL.shorten "http://google.com", :isgd    # => http://is.gd/OwycZW
 
 Here is a list of available shortening services:
 
-* [tinyurl.com](http://tinyurl.com)
 * [is.gd](http://is.gd)
+* [tinyurl.com](http://tinyurl.com)
+* [v.gd](http://v.gd)
 
 ## Contributing
 

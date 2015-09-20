@@ -1,22 +1,23 @@
 require "./shorturl/*"
+require "./shorturl/services/*"
 
 module ShortURL
   SERVICES = {
+    isgd:     Services::Isgd.new,
     tinyurl:  Services::TinyURL.new,
-    isgd:     Services::Isgd.new
+    vgd:      Services::Vgd.new
   } of Symbol => Service
 
   # Returns all available shortening services.
   #
   # ```
-  # ShortURL.all_services # => [:tinyurl, :isgd, ...]
+  # ShortURL.all_services # => [:isgd, :tinyurl, ...]
   # ```
   def self.all_services
     SERVICES.keys
   end
 
-  # Makes a shortening of the url using one of the 
-  # available services.
+  # Shortens an url using one of the available services.
   #
   # ```
   # ShortURL.shorten("http://google.com")        # => http://tinyurl.com/2tx
