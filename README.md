@@ -22,6 +22,7 @@ ShortURL.expand "http://tinyurl.com/2tx"       # => "http://google.com"
 Here is a list of available shortening services in shorturl.cr:
 
 * [is.gd](http://is.gd)
+* [shorl.com](http://shorl.com)
 * [tinyurl.com](http://tinyurl.com)
 * [v.gd](http://v.gd)
 
