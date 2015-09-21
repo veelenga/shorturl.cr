@@ -2,6 +2,17 @@
 
 A simple library to use URL shortening services. Inspired by Robby Russell's [shorturl](https://github.com/robbyrussell/shorturl).
 
+## Installation
+
+As a dependency in `shards.yml`:
+
+```yaml
+dependencies:
+  shorturl:
+    github: veelenga/shorturl.cr
+    branch: master
+```
+
 ## Usage
 
 As easy as it could be:

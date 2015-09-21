@@ -4,11 +4,11 @@ module ShortURL
   module Services
     describe Vgd do
       it "should have valid service characteristics" do
-        isgd = Vgd.new
-        isgd.hostname.should eq "v.gd"
-        isgd.method.should eq :get
-        isgd.action.should eq "/create.php"
-        isgd.param.should eq "format=simple&longurl"
+        service = Vgd.new
+        service.hostname.should eq "v.gd"
+        service.method.should eq :get
+        service.action.should eq "/create.php"
+        service.param.should eq "format=simple&longurl"
       end
     end
   end
