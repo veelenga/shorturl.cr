@@ -4,10 +4,10 @@ require "http/client"
 
 module ShortURL
   SERVICES = {
-    isgd:     Services::Isgd.new,
-    tinyurl:  Services::TinyURL.new,
-    vgd:      Services::Vgd.new
-  } of Symbol => Service
+               isgd:    Services::Isgd.new,
+               tinyurl: Services::TinyURL.new,
+               vgd:     Services::Vgd.new,
+             } of Symbol => Service
 
   # Returns all available shortening services.
   #
@@ -43,8 +43,7 @@ module ShortURL
   # can not be expanded.
   def self.expand(short_url : String)
     HTTP::Client.get(short_url).headers["Location"]
-  rescue ex: Exception
+  rescue ex : Exception
     raise InvalidShortURL.new short_url, ex
   end
-
 end

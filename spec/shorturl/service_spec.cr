@@ -15,13 +15,14 @@ module ShortURL
       end
 
       it "can be initialized with custom values" do
-        service = Service.new("tinyurl.com")
-          .tap(&.port = 8080)
-          .tap(&.code = 404)
-          .tap(&.method = :post)
-          .tap(&.action = "/create")
-          .tap(&.ssl = true)
-          .tap(&.param = "custom_url")
+        service = Service.new("tinyurl.com").tap do |s|
+          s.port = 8080
+          s.code = 404
+          s.method = :post
+          s.action = "/create"
+          s.ssl = true
+          s.param = "custom_url"
+        end
 
         service.hostname.should eq "tinyurl.com"
         service.port.should eq 8080
@@ -43,18 +44,20 @@ module ShortURL
 
       context "when request code does not match" do
         it "should return nil" do
-          service = Service.new("tinyurl.com")
-            .tap(&.code = 404)
-            .tap(&.action = "/create.php")
+          service = Service.new("tinyurl.com").tap do |s|
+            s.code = 404
+            s.action = "/create.php"
+          end
           service.shorten("http://google.com").should be_nil
         end
       end
 
       context "when given a valid service characteristics" do
         it "should return shorten url" do
-          service = Service.new("tinyurl.com")
-              .tap(&.method = "/create.php")
-              .tap(&.method = :get)
+          service = Service.new("tinyurl.com").tap do |s|
+            s.method = "/create.php"
+            s.method = :get
+          end
           service.shorten("http://google.com").should_not be_nil
         end
       end

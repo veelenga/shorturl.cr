@@ -13,15 +13,14 @@ module ShortURL
       describe "#on_body" do
         it "returns extracts shorl url from body" do
           Shorl.new.on_body("<b>http://shorl.com/url</b>")
-            .should eq "http://shorl.com/url"
+                   .should eq "http://shorl.com/url"
         end
 
         it "returns nil if shorl url not exists in body" do
           Shorl.new.on_body("<b>http://short.com/url</b>")
-            .should eq nil
+                   .should eq nil
         end
       end
     end
   end
 end
-

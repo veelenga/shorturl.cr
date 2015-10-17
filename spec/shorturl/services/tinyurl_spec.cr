@@ -12,4 +12,3 @@ module ShortURL
     end
   end
 end
-

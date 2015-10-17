@@ -20,14 +20,14 @@ module ShortURL
     def shorten(url : String)
       begin
         response = case @method
-          when :post
-            @http.post @action, body: "#{@param}=#{url}"
-          when :get
-            @http.get "#{@action}?#{@param}=#{url}"
-          end
+                   when :post
+                     @http.post @action, body: "#{@param}=#{url}"
+                   when :get
+                     @http.get "#{@action}?#{@param}=#{url}"
+                   end
 
         on_response response if response && response.status_code == @code
-      rescue ex: Socket::Error
+      rescue ex : Socket::Error
         raise ServiceNotAvailable.new ex.to_s, ex
       end
     end
