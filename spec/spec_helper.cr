@@ -1,4 +1,5 @@
 require "spec"
+require "webmock"
 require "../src/shorturl"
 require "../src/shorturl/service"
 require "../src/shorturl/services/isgd"

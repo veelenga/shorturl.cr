@@ -16,12 +16,16 @@ module ShortURL
   describe ".shorten" do
     context "when no service given" do
       it "uses default service and shorten an url" do
+        WebMock.stub(:get, "tinyurl.com/api-create.php?url=http://google.com").
+          to_return(body: "tinyurl")
         ShortURL.shorten("http://google.com").should match /tinyurl/
       end
     end
 
     context "when service is given" do
       it "uses given service and shorten an url" do
+        WebMock.stub(:get, "is.gd/api.php?longurl=http://google.com").
+          to_return(body: "is.gd")
         ShortURL.shorten("http://google.com", :isgd).should match /is\.gd/
       end
     end
@@ -36,8 +40,9 @@ module ShortURL
   describe ".expand" do
     context "when short url valid" do
       it "successfully expands it" do
-        short = ShortURL.shorten("http://google.com").not_nil!
-        ShortURL.expand(short).should eq "http://google.com"
+        WebMock.stub(:get, "http://tinyurl.com/xxxx")
+          .to_return(headers: {"Location": "http://google.com"})
+        ShortURL.expand("http://tinyurl.com/xxxx").should eq "http://google.com"
       end
     end
 

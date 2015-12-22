@@ -35,15 +35,9 @@ module ShortURL
     end
 
     describe "#shorten" do
-      context "when service not avaialble" do
-        it "should raise ServiceNotAvailable exception" do
-          service = Service.new "no_such_service.com"
-          expect_raises(ServiceNotAvailable) { service.shorten "http://google.com" }
-        end
-      end
-
       context "when request code does not match" do
         it "should return nil" do
+          WebMock.stub(:any, "tinyurl.com/create.php").to_return(status: 200, body: "shorten_url")
           service = Service.new("tinyurl.com").tap do |s|
             s.code = 404
             s.action = "/create.php"
@@ -54,11 +48,12 @@ module ShortURL
 
       context "when given a valid service characteristics" do
         it "should return shorten url" do
+          WebMock.stub(:any, "tinyurl.com/?url=http://google.com").to_return(status: 200, body: "shorten_url")
           service = Service.new("tinyurl.com").tap do |s|
             s.method = "/create.php"
             s.method = :get
           end
-          service.shorten("http://google.com").should_not be_nil
+          service.shorten("http://google.com").should eq "shorten_url"
         end
       end
     end
