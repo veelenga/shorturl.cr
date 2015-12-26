@@ -4,10 +4,11 @@ require "http/client"
 
 module ShortURL
   SERVICES = {
-               isgd:    Services::Isgd.new,
-               tinyurl: Services::TinyURL.new,
-               vgd:     Services::Vgd.new,
-             } of Symbol => Service
+               "isgd":    Services::Isgd.new,
+               "tinyurl": Services::TinyURL.new,
+               "vgd":     Services::Vgd.new,
+               "shorl":   Services::Shorl.new,
+             } of String => Service
 
   # Returns all available shortening services.
   #
@@ -26,10 +27,11 @@ module ShortURL
   # # ...
   # ```
   def self.shorten(url : String, service = :tinyurl)
+    service = service.to_s if service.is_a? Symbol
     if SERVICES.has_key? service
       SERVICES[service].shorten url
     else
-      raise InvalidService.new
+      raise InvalidService.new "Service not exists '#{service}'. Available services: #{SERVICES.keys.join ", "}"
     end
   end
 

@@ -9,7 +9,7 @@ module ShortURL
 
   describe ".all_services" do
     it "returns a list of available services names" do
-      ShortURL.all_services.should contain :tinyurl
+      ShortURL.all_services.should contain "tinyurl"
     end
   end
 
