@@ -36,7 +36,7 @@ It is possible to use it from command line interface:
 ```sh
 $ crystal build bin/shorturl && ./shorturl -h
 Usage: shorturl [arguments]
-    -u URL, --url=URL                URL to be shorten
+    -u URL, --url=URL                URL to be shortened
     -s SERVICE, --service=SERVICE    Shortening service
     -V, --verbose                    Verbose output
     -v, --versoin                    Version

@@ -11,7 +11,7 @@ module ShortURL
       OptionParser.parse(args) do |parser|
         parser.banner = "Usage: shorturl [arguments]"
 
-        parser.on("-u URL", "--url=URL", "URL to be shorten") do |u|
+        parser.on("-u URL", "--url=URL", "URL to be shortened") do |u|
           url = u
         end
 
