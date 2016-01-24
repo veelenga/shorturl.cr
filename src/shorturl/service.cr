@@ -36,7 +36,7 @@ module ShortURL
       body
     end
 
-    def on_response(response : HTTP::Response)
+    def on_response(response : HTTP::Client::Response)
       on_body response.body
     end
   end

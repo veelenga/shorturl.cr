@@ -68,13 +68,13 @@ module ShortURL
 
     describe "#on_response" do
       it "should return body on the response" do
-        response = HTTP::Response.new(200, "body")
+        response = HTTP::Client::Response.new(200, "body")
         service = Service.new "http://tinyurl.com"
         service.on_response(response).should eq "body"
       end
 
       it "should return empty string if body not present" do
-        response = HTTP::Response.new(200, nil)
+        response = HTTP::Client::Response.new(200, nil)
         service = Service.new "http://tinyurl.com"
         service.on_response(response).should eq ""
       end
