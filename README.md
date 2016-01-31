@@ -31,7 +31,7 @@ ShortURL.expand "http://tinyurl.com/2tx"       # => "http://google.com"
 
 ## Binary
 
-It is possible to use it from command line interface:
+As an addition, `shorturl` binary available for you:
 
 ```sh
 $ crystal build bin/shorturl && ./shorturl -h
@@ -39,7 +39,7 @@ Usage: shorturl [arguments]
     -u URL, --url=URL                URL to be shortened
     -s SERVICE, --service=SERVICE    Shortening service
     -V, --verbose                    Verbose output
-    -v, --versoin                    Version
+    -v, --version                    Version
     -h, --help                       Prints this help
 
 $ ./shorturl http://google.com
