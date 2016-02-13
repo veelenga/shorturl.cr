@@ -4,11 +4,11 @@ require "http/client"
 
 module ShortURL
   SERVICES = {
-               "isgd":    Services::Isgd.new,
-               "tinyurl": Services::TinyURL.new,
-               "vgd":     Services::Vgd.new,
-               "shorl":   Services::Shorl.new,
-             } of String => Service
+    "isgd":    Services::Isgd.new,
+    "tinyurl": Services::TinyURL.new,
+    "vgd":     Services::Vgd.new,
+    "shorl":   Services::Shorl.new,
+  } of String => Service
 
   # Returns all available shortening services.
   #

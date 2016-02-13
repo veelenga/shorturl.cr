@@ -40,7 +40,6 @@ module ShortURL
 
       puts "Shortening '#{url}'" if verbose
       puts ShortURL.shorten url.not_nil!, service
-
     rescue e : Exception
       puts "Error: #{e.message}"
       exit 1
