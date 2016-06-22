@@ -50,7 +50,6 @@ module ShortURL
         it "should return shorten url" do
           WebMock.stub(:any, "tinyurl.com/?url=http://google.com").to_return(status: 200, body: "shorten_url")
           service = Service.new("tinyurl.com").tap do |s|
-            s.method = "/create.php"
             s.method = :get
           end
           service.shorten("http://google.com").should eq "shorten_url"

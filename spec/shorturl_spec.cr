@@ -41,7 +41,7 @@ module ShortURL
     context "when short url valid" do
       it "successfully expands it" do
         WebMock.stub(:get, "http://tinyurl.com/xxxx")
-               .to_return(headers: {"Location": "http://google.com"})
+               .to_return(headers: {"Location" => "http://google.com"})
         ShortURL.expand("http://tinyurl.com/xxxx").should eq "http://google.com"
       end
     end
