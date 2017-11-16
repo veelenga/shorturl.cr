@@ -4,6 +4,8 @@ version: 0.1.1
 development_dependencies:
   webmock:
     github: manastech/webmock.cr
+  ameba:
+    github: veelenga/ameba
 
 authors:
   - Vitalii Elenhaupt <velenhaupt@gmail.com>

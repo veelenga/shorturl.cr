@@ -1,5 +1,6 @@
-/.deps/
-/libs/
+/bin
+/.shards/
+/lib/
 /.crystal/
 /doc/
 

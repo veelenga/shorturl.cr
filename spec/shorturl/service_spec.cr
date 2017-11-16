@@ -6,7 +6,7 @@ module ShortURL
       it "initializes new service with default values" do
         service = Service.new "tinyurl.com"
         service.hostname.should eq "tinyurl.com"
-        service.port.should eq 80
+        service.port.should eq 81
         service.code.should eq 200
         service.method.should eq :post
         service.action.should eq "/"
@@ -16,7 +16,7 @@ module ShortURL
 
       it "can be initialized with custom values" do
         service = Service.new("tinyurl.com").tap do |s|
-          s.port = 8080
+          s.port = 8_080
           s.code = 404
           s.method = :post
           s.action = "/create"
@@ -25,7 +25,7 @@ module ShortURL
         end
 
         service.hostname.should eq "tinyurl.com"
-        service.port.should eq 8080
+        service.port.should eq 8_080
         service.code.should eq 404
         service.method.should eq :post
         service.action.should eq "/create"
