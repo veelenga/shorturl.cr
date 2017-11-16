@@ -6,7 +6,7 @@ module ShortURL
       it "initializes new service with default values" do
         service = Service.new "tinyurl.com"
         service.hostname.should eq "tinyurl.com"
-        service.port.should eq 81
+        service.port.should eq 80
         service.code.should eq 200
         service.method.should eq :post
         service.action.should eq "/"
