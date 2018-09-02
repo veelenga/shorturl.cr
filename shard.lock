@@ -2,9 +2,9 @@ version: 1.0
 shards:
   ameba:
     github: veelenga/ameba
-    version: 0.7.0
+    version: 0.8.0
 
   webmock:
     github: manastech/webmock.cr
-    version: 0.9.3
+    version: 0.10.0
 
