@@ -6,8 +6,8 @@ development_dependencies:
     github: manastech/webmock.cr
     version: 0.10.0
   ameba:
-    github: veelenga/ameba
-    version: 0.8.0
+    github: crystal-ameba/ameba
+    version: 0.11.0
 
 authors:
   - Vitalii Elenhaupt <velenhaupt@gmail.com>
